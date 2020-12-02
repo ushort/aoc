@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
     check(args.size == 1) { "Enter a target sum." }
     val targetSum = args[0].toInt()
     val inputPath = Paths.get(ClassLoader.getSystemResource("input1.txt").toURI())
-    val expenses = Files.readAllLines(inputPath).toHashSet().map { s -> s.toInt() }
+    val expenses = Files.readAllLines(inputPath).toHashSet().map(String::toInt)
     for (expense in expenses) {
         val second = targetSum - expense
         if (expenses.contains(second)) {
